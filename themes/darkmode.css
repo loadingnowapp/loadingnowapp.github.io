@@ -1,0 +1,189 @@
+/* themes/darkmode.css - Modern Dark Mode */
+
+body {
+    background-color: #1a1a1a; /* Very dark background */
+    color: #e0e0e0; /* Light grey text */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+}
+
+.container {
+    background-color: #2c2c2c; /* Dark grey container */
+    border: 1px solid #444444;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    max-width: 550px;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff; /* White heading */
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+h2 {
+    font-size: 1.1em;
+    color: #cccccc; /* Lighter grey */
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.loading-bar-container {
+    background-color: #3a3a3a; /* Darker track */
+    border: none; /* No border */
+    border-radius: 5px;
+    height: 20px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.loading-bar {
+    background-color: #007bff; /* Vibrant blue - common dark mode accent */
+    border-radius: 5px;
+    height: 100%;
+    /* Default animation applies */
+}
+
+.percentage-text {
+    color: #b0b0b0;
+    font-size: 1em;
+    margin-top: 8px;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #b0b0b0;
+    font-size: 1.8em;
+    top: 15px;
+    right: 15px;
+}
+.settings-button:hover {
+    color: #ffffff;
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.8); /* More opaque backdrop */
+}
+
+.settings-content {
+    background-color: #2c2c2c; /* Match container */
+    border: 1px solid #444444;
+    border-radius: 8px;
+    color: #e0e0e0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    max-width: 450px;
+    padding: 25px;
+}
+
+.settings-content h2 {
+    color: #ffffff;
+    border-bottom: 1px solid #444444;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.settings-content fieldset {
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #3a3a3a; /* Match track */
+}
+
+.settings-content legend {
+    color: #cccccc;
+    font-weight: bold;
+    padding: 0 8px;
+}
+
+/* Buttons */
+.theme-options button,
+.font-options button,
+#close-settings {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+    color: #e0e0e0;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1em;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.theme-options button:hover,
+.font-options button:hover,
+#close-settings:hover {
+    background-color: #4a4a4a;
+    border-color: #666666;
+    color: #ffffff;
+}
+
+.theme-options button:active,
+.font-options button:active,
+#close-settings:active {
+    background-color: #5a5a5a;
+    border-color: #777777;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.theme-options button.active,
+.font-options button.active {
+    background-color: #007bff; /* Accent color */
+    color: #ffffff;
+    border-color: #0056b3;
+    font-weight: bold;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.display-options label {
+    color: #e0e0e0;
+}
+
+.display-options select {
+    background-color: #3a3a3a;
+    border: 1px solid #555555;
+    color: #e0e0e0;
+    border-radius: 4px;
+    padding: 5px 8px;
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+}
+
+.display-options input[type="checkbox"] {
+    accent-color: #007bff;
+}
+
+/* Tooltip */
+.progress-tooltip {
+    background-color: rgba(255, 255, 255, 0.95); /* Light tooltip */
+    color: #1a1a1a; /* Dark text */
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation - Subtle pulse/glow */
+.container.animate-bars .loading-bar {
+    /* No ::after animation needed, can use a CSS filter or subtle background change */
+}
+.container.animate-bars .loading-bar {
+    /* Example: Simple background change */
+     animation: pulse-darkbar 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-darkbar {
+    from { background-color: #007bff; }
+    to { background-color: #0056b3; }
+}

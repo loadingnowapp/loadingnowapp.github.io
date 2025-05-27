@@ -1,0 +1,273 @@
+/* themes/ios.css - Clean, Modern iOS Style */
+
+body {
+    background-color: #f2f2f7; /* Light grey background */
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* System font stack */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: #ffffff; /* White container */
+    border: none; /* No visible border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 2em; /* Larger heading */
+    font-weight: 700; /* Bold */
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: 600; /* Semi-bold */
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.loading-bar-container {
+    background-color: #e5e5ea; /* Light grey track */
+    border: none;
+    border-radius: 8px; /* Rounded ends */
+    height: 16px; /* Thinner bar */
+    overflow: hidden;
+}
+
+.loading-bar {
+    background-color: #007aff; /* Vibrant iOS Blue */
+    border-radius: 8px; /* Match container rounding */
+    height: 100%;
+    /* Base animation applies, but can be overridden for specific effects */
+    position: relative;
+}
+
+/* iOS style animation - subtle gradient sweep (like app installs) */
+.container.animate-bars .loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 20%; /* Width of the sheen */
+    height: 100%;
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%, /* Semi-transparent white */
+        rgba(255, 255, 255, 0) 100%);
+    /* transform: skewX(-20deg); */ /* No skew needed for this effect */
+    animation: move-ios-sheen 1.5s linear infinite; /* Smooth, linear animation */
+}
+
+@keyframes move-ios-sheen {
+    to {
+        left: 100%; /* Move completely across */
+    }
+}
+
+.percentage-text {
+    color: #555555;
+    font-size: 1em;
+    margin-top: 8px;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #007aff; /* Blue cog */
+    font-size: 1.8em;
+    top: 15px;
+    right: 15px;
+}
+.settings-button:hover {
+    color: #0056b3;
+}
+
+/* Settings Modal */
+.settings-modal {
+    /* iOS often uses a frosted glass effect, but rgba is simpler */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.settings-content {
+    background-color: #ffffff; /* White background */
+    border: none;
+    border-radius: 10px;
+    color: #000000;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px; /* Often narrower */
+    padding: 20px;
+    /* iOS modals often have subtle inset dividers */
+    border-top: 1px solid #e5e5ea;
+    border-bottom: 1px solid #e5e5ea;
+}
+
+.settings-content h2 {
+    color: #000000;
+    border-bottom: 1px solid #e5e5ea; /* Light divider */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.settings-content fieldset {
+    border: none; /* No explicit fieldset border */
+    padding: 0; /* Remove default fieldset padding */
+    margin-bottom: 15px;
+    background: none; /* No fieldset background */
+}
+
+.settings-content legend {
+    color: #8a8a8e; /* Grey label */
+    font-weight: 600;
+    padding: 0 0 8px 0; /* Label above content */
+    font-size: 0.9em;
+}
+
+/* Buttons - Mimic standard iOS buttons */
+.theme-options button,
+.font-options button,
+#close-settings {
+    background-color: #007aff; /* Blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px; /* Rounded */
+    padding: 12px 15px; /* More padding */
+    font-size: 1em;
+    font-weight: 600; /* Semi-bold */
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.theme-options button:hover,
+.font-options button:hover,
+#close-settings:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.theme-options button:active,
+.font-options button:active,
+#close-settings:active {
+    opacity: 0.8; /* Reduce opacity on press */
+}
+
+/* White 'Cancel' button style */
+#close-settings {
+     background-color: #ffffff;
+     color: #007aff; /* Blue text */
+     border: 1px solid #d1d1d6; /* Subtle border */
+     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+#close-settings:hover {
+    background-color: #f2f2f7;
+}
+
+
+.theme-options button.active,
+.font-options button.active {
+    background-color: #007aff; /* Stay blue when active */
+    color: #ffffff;
+    font-weight: 700; /* More bold when active/selected */
+    box-shadow: none; /* No inset shadow */
+    /* Maybe a subtle ring or slightly darker blue if it's a toggle */
+}
+/* For toggles, maybe a different style? Sticking to primary blue for simplicity */
+
+
+.display-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.display-options label {
+    color: #000;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between; /* Push checkbox to the right */
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #e5e5ea; /* Divider */
+    /* Remove gap as checkbox is floated */
+}
+.display-options label:last-child {
+    border-bottom: none; /* No divider on last item */
+}
+
+
+.display-options select {
+    background-color: #ffffff;
+    border: 1px solid #d1d1d6; /* Light grey border */
+    color: #000000;
+    border-radius: 6px;
+    padding: 6px 8px;
+    font-family: inherit;
+    flex-grow: 0; /* Prevent select from taking full width */
+    min-width: 80px;
+    text-align: right; /* Align value to the right */
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #007aff;
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2); /* Blue glow */
+}
+
+.display-options input[type="checkbox"] {
+    /* Hide default checkbox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 50px; /* Standard switch size */
+    height: 30px;
+    background-color: #e5e5ea; /* Off state color */
+    border-radius: 15px; /* Pill shape */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none; /* No outline */
+    flex-shrink: 0;
+    margin-right: 0; /* Remove margin */
+    vertical-align: middle;
+}
+
+.display-options input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px; /* Size of the thumb */
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%; /* Round thumb */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Thumb shadow */
+    transition: transform 0.3s ease;
+}
+
+.display-options input[type="checkbox"]:checked {
+    background-color: #34c759; /* Green on state */
+}
+
+.display-options input[type="checkbox"]:checked::before {
+    transform: translateX(20px); /* Move thumb to the right */
+}
+
+/* Tooltip */
+.progress-tooltip {
+    background-color: rgba(0, 0, 0, 0.85); /* Dark background */
+    color: #ffffff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.85em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}

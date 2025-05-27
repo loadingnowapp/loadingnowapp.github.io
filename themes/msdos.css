@@ -1,0 +1,243 @@
+/* themes/msdos.css - MS-DOS Terminal Style */
+
+body {
+    background-color: #000000; /* Black terminal background */
+    color: #00FF00; /* Bright green text (classic monochrome) */
+    font-family: 'Courier New', Courier, monospace; /* Monospace font */
+    padding: 20px; /* Add some padding */
+}
+
+.container {
+    background-color: #000000; /* Black background */
+    border: 2px solid #00FFFF; /* Cyan border */
+    border-radius: 0; /* Sharp corners */
+    box-shadow: none; /* No shadows */
+    padding: 15px; /* Padding inside the border */
+    max-width: 600px; /* Terminal width */
+    text-align: left; /* Text aligns left like a console */
+}
+
+h1 {
+    font-size: 1.2em; /* Smaller heading */
+    font-weight: normal; /* No bold */
+    margin-bottom: 20px;
+    color: #FFFF00; /* Yellow for main title */
+    text-align: left;
+    text-transform: uppercase; /* Often uppercase */
+}
+
+h2 {
+    font-size: 1em; /* Smaller h2 */
+    font-weight: normal; /* No bold */
+    color: #FFFFFF; /* White for section titles */
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.progress-section {
+    margin-bottom: 15px;
+}
+
+.loading-bar-container {
+    background-color: #202020; /* Dark grey track */
+    border: 1px solid #404040; /* Darker grey border */
+    border-radius: 0;
+    height: 15px; /* Thinner bar */
+    box-shadow: none;
+    overflow: hidden;
+    padding: 0; /* No padding */
+    position: relative; /* Needed for block animation */
+}
+
+.loading-bar {
+    background-color: #00FF00; /* Bright green bar */
+    height: 100%;
+    border-radius: 0;
+    /* Simulate character blocks */
+    background-image: linear-gradient(to right, #00FF00 10px, transparent 10px, transparent 15px); /* 10px block, 5px gap */
+    background-size: 15px 15px;
+    transition: none; /* No smooth transition */
+}
+
+/* MS-DOS style animation - move the block background */
+.container.animate-bars .loading-bar {
+    animation: move-msdos-blocks 0.5s linear infinite; /* Fast block movement */
+}
+
+@keyframes move-msdos-blocks {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 15px 0; /* Move one block+gap width */
+    }
+}
+
+/* Ensure the generic stripe animation is removed if present */
+.container.animate-bars .loading-bar::after {
+    content: none !important; /* Override base style */
+    animation: none !important;
+    background: none !important;
+}
+
+.percentage-text {
+    color: #00FFFF; /* Cyan percentage */
+    font-size: 1em;
+    margin-top: 5px;
+    text-align: left;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #FFFFFF; /* White cog */
+    font-size: 1.5em;
+    padding: 0;
+    top: 10px;
+    right: 10px;
+    transition: none; /* No transition */
+}
+
+.settings-button:hover {
+    color: #AAAAAA; /* Grey on hover */
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.8); /* More opaque backdrop */
+    padding: 10px;
+}
+
+.settings-content {
+    background-color: #000000;
+    border: 2px solid #00FFFF; /* Cyan border */
+    border-radius: 0;
+    box-shadow: none;
+    color: #00FF00; /* Green text */
+    padding: 15px;
+    max-width: 400px;
+    text-align: left;
+}
+
+.settings-content h2 {
+    background-color: transparent; /* No colored title bar */
+    color: #FFFF00; /* Yellow heading */
+    padding: 0;
+    margin: 0 0 15px 0;
+    font-size: 1.1em;
+    font-weight: normal;
+    text-align: left;
+    border-bottom: none; /* No border */
+}
+
+.settings-content fieldset {
+    border: 1px solid #404040; /* Dark grey border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.settings-content legend {
+    color: #FFFFFF; /* White legend */
+    padding: 0 5px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+/* Buttons - Mimic simple console buttons */
+.theme-options button,
+#close-settings {
+    background-color: #404040; /* Dark grey background */
+    border: 1px solid #808080; /* Medium grey border */
+    color: #00FF00; /* Green text */
+    padding: 5px 10px;
+    border-radius: 0;
+    font-size: 0.9em;
+    box-shadow: none;
+    transition: none;
+    min-width: 100px;
+    text-align: center;
+}
+
+.theme-options button:hover,
+#close-settings:hover {
+    background-color: #606060; /* Lighter grey on hover */
+    border-color: #A0A0A0;
+    color: #FFFF00; /* Yellow text on hover */
+}
+
+.theme-options button:active,
+#close-settings:active {
+    background-color: #808080; /* Even lighter grey on active */
+    border-color: #C0C0C0;
+}
+
+.theme-options button.active {
+    background-color: #00FF00; /* Green active state */
+    color: #000000; /* Black text on active */
+    border: 1px solid #008000;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.display-options label {
+    color: #00FF00; /* Green text */
+    font-size: 1em;
+}
+
+.display-options select {
+    background-color: #000000;
+    border: 1px solid #404040;
+    color: #00FF00;
+    border-radius: 0;
+    padding: 3px;
+    font-family: inherit;
+}
+
+.display-options select:focus {
+    outline: 1px dotted #00FFFF; /* Cyan dotted outline */
+    outline-offset: -2px;
+    border-color: #00FFFF; /* Cyan border */
+}
+
+.display-options input[type="checkbox"] {
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    background-color: #000000;
+    border: 1px solid #404040;
+    position: relative;
+    cursor: pointer;
+    margin-right: 5px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.display-options input[type="checkbox"]:checked {
+     background-color: #00FF00; /* Green when checked */
+     border-color: #008000;
+}
+
+.display-options input[type="checkbox"]:checked::before {
+    /* Hide default checkmark, MS-DOS might just fill the box */
+     content: ''; /* No separate checkmark */
+     position: static;
+     display: none;
+}
+
+.display-options input[type="checkbox"]:focus {
+    outline: 1px dotted #00FFFF;
+    outline-offset: 1px;
+}
+
+/* Tooltip */
+.progress-tooltip {
+    background-color: #FFFF00; /* Yellow tooltip background */
+    color: #000000; /* Black text */
+    border: 1px solid #000000;
+    border-radius: 0;
+    padding: 2px 4px;
+    font-size: 0.8em;
+    box-shadow: 1px 1px 0px #404040;
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Now...</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Theme stylesheet will be loaded here -->
+    <link rel="stylesheet" id="theme-style" href="">
+    <!-- Google Fonts for specific themes (Optional, but helps accuracy) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Ubuntu:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="settings-modal">
+        <div class="settings-content">
+            <h2>Settings</h2>
+
+            <fieldset>
+                <legend>Theme</legend>
+                <div class="theme-options settings-grid">
+                    <button data-theme="win9x">Windows 9x</button>
+                    <button data-theme="macos8">macOS 8</button>
+                    <button data-theme="macos10">macOS 10</button>
+                    <button data-theme="windowsxp">Windows XP</button>
+                    <button data-theme="ubuntu">Ubuntu</button>
+                    <button data-theme="darkmode">Dark Mode</button>
+                    <button data-theme="msdos">MS-DOS</button>
+                    <button data-theme="amiga">Amiga OS</button>
+                    <button data-theme="ios">iOS</button>
+                    <button data-theme="android">Android</button>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Display Options</legend>
+                <div class="display-options">
+                     <label>
+                        <input type="checkbox" id="toggle-animation" checked> Animate Bars
+                     </label>
+                    <label>
+                        Precision:
+                        <select id="percentage-precision">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2" selected>2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select> decimal places
+                    </label>
+                </div>
+            </fieldset>
+
+            <button id="close-settings">Close</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Settings Button -->
+        <button id="settings-button" class="settings-button">⚙️</button>
+
+        <h1>Loading Now...</h1>
+
+        <div class="progress-section">
+            <h2>Day</h2>
+            <div class="loading-bar-container" data-tooltip-id="day-progress-tooltip">
+                <div id="day-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="day-progress-tooltip"></span>
+            </div>
+            <div id="day-percentage-text" class="percentage-text">0%</div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Week</h2>
+            <div class="loading-bar-container" data-tooltip-id="week-progress-tooltip">
+                <div id="week-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="week-progress-tooltip"></span>
+            </div>
+            <div id="week-percentage-text" class="percentage-text">0%</div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Month</h2>
+            <div class="loading-bar-container" data-tooltip-id="month-progress-tooltip">
+                <div id="month-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="month-progress-tooltip"></span>
+            </div>
+            <div id="month-percentage-text" class="percentage-text">0%</div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Year</h2>
+            <div class="loading-bar-container" data-tooltip-id="year-progress-tooltip">
+                <div id="year-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="year-progress-tooltip"></span>
+            </div>
+            <div id="year-percentage-text" class="percentage-text">0%</div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Decade</h2>
+            <div class="loading-bar-container" data-tooltip-id="decade-progress-tooltip">
+                <div id="decade-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="decade-progress-tooltip"></span>
+            </div>
+            <div id="decade-percentage-text" class="percentage-text">0%</div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Century</h2>
+            <div class="loading-bar-container" data-tooltip-id="century-progress-tooltip">
+                <div id="century-progress-bar" class="loading-bar"></div>
+                <span class="progress-tooltip" id="century-progress-tooltip"></span>
+            </div>
+            <div id="century-percentage-text" class="percentage-text">0%</div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {}
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

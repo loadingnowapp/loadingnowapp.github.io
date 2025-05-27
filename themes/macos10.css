@@ -1,0 +1,235 @@
+/* themes/macos10.css - macOS 10.x Aqua Theme */
+
+body {
+    background: linear-gradient(to bottom, #E6EBF3, #D8DDE7); /* Subtle light blue/grey gradient */
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; /* System font stack */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: #F0F2F5; /* Light grey background */
+    border: 1px solid #C0C0C0; /* Light grey border */
+    border-top: 1px solid #E0E0E0; /* Lighter top border */
+    border-left: 1px solid #E0E0E0; /* Lighter left border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px;
+    max-width: 550px;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 600; /* Semi-bold */
+    margin-bottom: 30px;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); /* Subtle white text shadow */
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); /* Subtle white text shadow */
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.loading-bar-container {
+    background-color: #E0E0E0; /* Light grey track */
+    border: 1px solid #BDBDBD; /* Slightly darker grey border */
+    border-radius: 10px; /* More rounded capsule shape */
+    height: 18px; /* Slightly thinner */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensure animation stays within bounds */
+    padding: 1px; /* Space for inner bar */
+}
+
+.loading-bar {
+    background: linear-gradient(to bottom, #66B2FF, #007AFF); /* Aqua Blue gradient */
+    border-radius: 9px; /* Match container rounding minus padding */
+    height: 100%;
+    position: relative; /* Needed for animation */
+}
+
+/* macOS 10 style animation - subtle sheen/highlight */
+.container.animate-bars .loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start off screen */
+    width: 50%; /* Width of the sheen */
+    height: 100%;
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%, /* Semi-transparent white */
+        rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg); /* Slight skew */
+    animation: move-mac-sheen 2s ease-in-out infinite; /* Slower, smoother animation */
+}
+
+@keyframes move-mac-sheen {
+    0% { left: -50%; }
+    50% { left: 150%; }
+    100% { left: -50%; }
+}
+
+.percentage-text {
+    color: #555;
+    font-size: 1em;
+    margin-top: 8px;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Settings Button */
+.settings-button {
+    color: #555;
+    font-size: 1.8em;
+    top: 15px;
+    right: 15px;
+    transition: color 0.2s ease;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.settings-button:hover {
+    color: #000;
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.4); /* Standard backdrop */
+    padding: 20px;
+}
+
+.settings-content {
+    background-color: #F0F2F5; /* Match container */
+    border: 1px solid #B0B0B0;
+    border-radius: 10px; /* More rounded */
+    color: #000000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    padding: 25px;
+}
+
+.settings-content h2 {
+    color: #000;
+    border-bottom: 1px solid #C0C0C0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.settings-content fieldset {
+    border: 1px solid #D0D0D0;
+    border-radius: 6px; /* Slightly more rounded */
+    padding: 15px; /* More padding */
+    margin-bottom: 20px;
+    background-color: #F8F8FA; /* Slightly off-white */
+}
+
+.settings-content legend {
+    color: #333;
+    font-weight: 600;
+    padding: 0 8px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.theme-options button,
+.font-options button,
+#close-settings {
+    background: linear-gradient(to bottom, #FFFFFF, #E0E0E0); /* Subtle gradient */
+    border: 1px solid #B5B5B5;
+    color: #000000;
+    border-radius: 5px; /* More rounded */
+    padding: 10px 15px; /* More padding */
+    font-size: 1em;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-options button:hover,
+.font-options button:hover,
+#close-settings:hover {
+    background: linear-gradient(to bottom, #FDFDFD, #D8D8D8);
+    border-color: #999999;
+}
+
+.theme-options button:active,
+.font-options button:active,
+#close-settings:active {
+    background: linear-gradient(to bottom, #D0D0D0, #E0E0E0);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+    border-color: #888888;
+}
+
+/* Primary action button style */
+#close-settings {
+    background: linear-gradient(to bottom, #66B2FF, #007AFF); /* Blue gradient */
+    border: 1px solid #0056B3;
+    color: #FFFFFF;
+    font-weight: 600;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+#close-settings:hover {
+    background: linear-gradient(to bottom, #80C0FF, #0066CC);
+    border-color: #004080;
+}
+#close-settings:active {
+    background: linear-gradient(to bottom, #007AFF, #66B2FF);
+    border-color: #003060;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.theme-options button.active,
+.font-options button.active {
+    background: linear-gradient(to bottom, #B0B0B0, #C0C0C0); /* Slightly darker grey when selected */
+    border-color: #888888;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+    font-weight: bold; /* Active is bold */
+}
+
+.display-options label {
+    color: #333;
+    font-size: 1em;
+}
+
+.display-options select {
+    background: linear-gradient(to bottom, #FFFFFF, #F0F0F0);
+    border: 1px solid #B5B5B5;
+    color: #000000;
+    border-radius: 4px;
+    padding: 5px 8px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    font-family: inherit;
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #007AFF; /* Aqua Blue focus ring */
+    box-shadow: 0 0 3px rgba(0, 122, 255, 0.6);
+}
+
+.display-options input[type="checkbox"] {
+    accent-color: #007AFF; /* Aqua Blue check */
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+/* Tooltip */
+.progress-tooltip {
+    background-color: rgba(40, 40, 40, 0.9); /* Dark grey tooltip */
+    color: #FFFFFF;
+    border-radius: 5px;
+    padding: 6px 10px;
+    font-size: 0.9em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}

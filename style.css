@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap');
+
+/* Base styles - applied regardless of theme */
+:root {
+    --animation-duration: 1.5s; /* Default animation duration */
+}
+
+body {
+    /* Default font set here, WILL BE overridden by themes */
+    font-family: 'Noto Sans', sans-serif;
+    background-color: #f0f0f0; /* Default light background */
+    color: #333; /* Default dark text */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    /* Removed font-family transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Remove specific font classes */
+/* body.font-monospace { font-family: 'Courier New', Courier, monospace; } */
+/* body.font-sans-serif { font-family: 'Noto Sans', Arial, sans-serif; } */
+/* 'system-default' was meant to use theme's font, now all fonts are theme-based */
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 50px; /* Space for settings button */
+    padding-bottom: 20px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    /* Basic container transitions - themes might override */
+    transition: background-color 0.3s ease, padding 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    margin-top: 0;
+    /* Basic transitions - themes will specify colors/shadows */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.progress-section h2 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    /* Basic transitions - themes will specify colors/shadows */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.loading-bar-container {
+    width: 100%;
+    height: 25px; /* Default height */
+    border: 1px solid #ccc; /* Default border */
+    background-color: #eee; /* Default track color */
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease, height 0.3s ease;
+    cursor: pointer;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #888; /* Default bar color */
+    transition: width 0.5s linear, background-color 0.3s ease, border-radius 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Needed for ::after animation */
+}
+
+/* --- Generic loading bar animation effect (conditionally applied) --- */
+/* Themes provide their own animation styles if desired */
+.container.animate-bars .loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    /* Default subtle animation - themes override this */
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+    animation: move-stripe var(--animation-duration) linear infinite; /* Use CSS variable */
+    z-index: 1;
+}
+
+@keyframes move-stripe {
+    to {
+        left: 100%;
+    }
+}
+
+.percentage-text {
+    margin-top: 8px;
+    font-size: 1.1em;
+    /* Basic transitions - themes will specify colors */
+    transition: color 0.3s ease;
+}
+
+/* --- Progress Tooltip --- */
+.progress-tooltip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Default tooltip text */
+    background-color: rgba(0, 0, 0, 0.85); /* Default tooltip background */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    pointer-events: none;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+    /* Default font for tooltip - usually sans-serif */
+    font-family: inherit; /* Inherit font from body/theme */
+}
+
+/* Show on hover (for desktop) */
+.loading-bar-container:hover .progress-tooltip {
+    opacity: 1;
+}
+
+/* Show on tap (managed by JS) */
+.progress-tooltip.visible {
+    opacity: 1;
+}
+
+/* --- Settings Button --- */
+.settings-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #555; /* Default color */
+    z-index: 100;
+    transition: color 0.3s ease;
+    padding: 5px;
+}
+
+/* --- Settings Modal (Base Structure & Interaction) --- */
+.settings-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Default backdrop */
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.settings-modal.visible {
+    display: flex; /* Show modal */
+}
+
+.settings-content {
+    background-color: #fff; /* Default background */
+    color: #333; /* Default text */
+    padding: 20px;
+    border: 1px solid #ccc; /* Default border */
+    text-align: left;
+    max-width: 450px; /* Consistent max width */
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    max-height: 90vh; /* Prevent overflow */
+    overflow-y: auto; /* Enable scrolling if needed */
+    border-radius: 5px; /* Default rounding */
+}
+
+.settings-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    /* Basic transitions - themes specify color etc */
+    transition: color 0.3s ease;
+}
+
+.settings-content fieldset {
+    border: 1px solid #ddd; /* Default border */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.settings-content legend {
+    padding: 0 10px;
+    font-weight: bold;
+    /* Basic transitions - themes specify color */
+    transition: color 0.3s ease;
+}
+
+/* Grid layout for buttons */
+.settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 10px;
+}
+
+/* Base button style for themes to inherit/override */
+.theme-options button {
+    padding: 10px;
+    background-color: #eee;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-family: inherit; /* Inherit from body/theme */
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+    border-radius: 3px; /* Default rounding */
+}
+
+.theme-options button:hover {
+    background-color: #ddd; /* Default hover */
+}
+
+/* Base style for active setting buttons */
+.theme-options button.active {
+    border-width: 2px;
+    font-weight: bold;
+    /* Themes should define specific active styles (color, background, shadow) */
+}
+
+.display-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.display-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    justify-content: space-between; /* Distribute items */
+}
+.display-options label span {
+     flex-grow: 1; /* Allow text label to grow */
+     margin-right: 10px; /* Space between label and control */
+}
+.display-options label input[type="checkbox"],
+.display-options label select,
+.display-options label input[type="range"] {
+    flex-shrink: 0; /* Prevent controls from shrinking */
+}
+
+.display-options input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    /* accent-color can be themed */
+}
+
+.display-options select {
+    padding: 5px 8px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: inherit;
+    cursor: pointer;
+    min-width: 60px; /* Ensure enough width for options */
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #888; /* Default focus */
+}
+
+.display-options input[type="range"] {
+    -webkit-appearance: none; /* Override default appearance */
+    appearance: none;
+    width: 150px; /* Default width */
+    height: 8px; /* Default height */
+    background: #ddd; /* Default track color */
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 4px;
+}
+
+.display-options input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Style for the slider thumb (handle) */
+.display-options input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Thumb size */
+    height: 20px;
+    background: #555; /* Default thumb color */
+    cursor: pointer;
+    border-radius: 50%; /* Round thumb */
+    margin-top: -6px; /* Center thumb vertically */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.display-options input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #555;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Base close button style */
+#close-settings {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 1em;
+    font-family: inherit;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    text-align: center;
+    border-radius: 3px;
+}
+
+#close-settings:hover {
+    background-color: #ccc;
+}

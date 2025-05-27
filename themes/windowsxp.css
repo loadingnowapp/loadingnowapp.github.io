@@ -1,0 +1,192 @@
+/* themes/windowsxp.css - Windows XP Luna Theme */
+
+body {
+    background-color: #ECE9D8; /* XP Off-white background */
+    color: #000000;
+    font-family: 'Tahoma', sans-serif; /* Default XP font */
+}
+
+.container {
+    background: linear-gradient(to bottom, #F0F0F0, #E0E0E0); /* Very subtle gradient */
+    border: 1px solid #A0A0A0;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    border-top: 1px solid #FFFFFF; /* Inner highlight */
+    max-width: 500px; /* Typical window width */
+}
+
+h1 {
+    font-size: 1.6em;
+    color: #1E51A0; /* XP Blue */
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #FFF;
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.loading-bar-container {
+    background-color: #EAEAEA;
+    border: 1px solid #B0B0B0;
+    border-radius: 3px;
+    height: 20px;
+    padding: 2px; /* Space for inner bar */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensure animation stays within bounds */
+}
+
+.loading-bar {
+    background: linear-gradient(to bottom, #7CB0E0, #3C80D0); /* XP Blue gradient */
+    border-radius: 1px;
+    height: 100%;
+    position: relative; /* Needed for animation */
+}
+
+/* XP Green chunk animation */
+.container.animate-bars .loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Start off screen */
+    width: 50%; /* Wider chunk */
+    height: 100%;
+    background: linear-gradient(to right,
+        rgba(120, 210, 80, 0) 0%,
+        rgba(120, 210, 80, 0.7) 50%,
+        rgba(120, 210, 80, 0) 100%);
+    transform: skewX(-30deg); /* Skew the chunk */
+    animation: move-xp-chunk 1s linear infinite;
+}
+
+@keyframes move-xp-chunk {
+    to {
+        left: 150%; /* Move across */
+    }
+}
+
+.percentage-text {
+    color: #444;
+    font-size: 1em;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #1E51A0; /* XP Blue */
+    font-size: 1.7em;
+    top: 8px;
+    right: 8px;
+}
+.settings-button:hover {
+    color: #0F3A7A;
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.settings-content {
+    background-color: #ECE9D8; /* XP background */
+    border: 1px solid #909090;
+    border-radius: 6px;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.settings-content h2 {
+    color: #1E51A0;
+    border-bottom: 1px solid #C0C0C0;
+    padding-bottom: 10px;
+    font-size: 1.3em;
+    text-shadow: 1px 1px 1px #FFF;
+}
+
+.settings-content fieldset {
+    border: 1px solid #C0C0C0;
+    border-radius: 3px;
+    padding: 10px 15px;
+    background-color: #F4F3EE; /* Slightly different shade */
+}
+
+.settings-content legend {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Standard XP button style */
+.theme-options button,
+.font-options button,
+#close-settings {
+    background: linear-gradient(to bottom, #FFFFFF, #E0E0E0);
+    border: 1px solid #707070;
+    color: #000000;
+    border-radius: 3px;
+    padding: 6px 12px;
+    font-size: 0.9em;
+    font-family: 'Tahoma', sans-serif; /* Ensure Tahoma */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.theme-options button:hover,
+.font-options button:hover,
+#close-settings:hover {
+    border-color: #1E51A0; /* Blue border on hover */
+    background: linear-gradient(to bottom, #FFF8E0, #FFD8A0); /* Yellowish hover */
+}
+
+.theme-options button:active,
+.font-options button:active,
+#close-settings:active {
+    background: linear-gradient(to bottom, #D0D0D0, #E8E8E8);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+    border-color: #505050;
+}
+
+.theme-options button.active,
+.font-options button.active {
+    background: linear-gradient(to bottom, #C0C0C0, #D8D8D8); /* Pressed state */
+    border: 1px solid #505050;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+}
+
+.display-options label {
+    color: #000;
+}
+
+.display-options select {
+    background-color: #FFFFFF;
+    border: 1px solid #707070;
+    color: #000000;
+    border-radius: 3px;
+    padding: 3px 5px;
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #1E51A0; /* Blue focus */
+    box-shadow: 0 0 0 1px #90C0F0; /* Subtle glow */
+}
+
+.display-options input[type="checkbox"] {
+    accent-color: #1E51A0;
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+/* Tooltip */
+.progress-tooltip {
+    background-color: #FFFFE1; /* Pale yellow */
+    color: #000000;
+    border: 1px solid #B0B0B0;
+    border-radius: 2px;
+    padding: 3px 5px;
+    font-size: 0.8em;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}

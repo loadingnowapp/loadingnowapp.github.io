@@ -1,0 +1,114 @@
+/* themes/android.css - Modern Android / Material Design Style */
+
+body {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #1f1f1f; /* Very dark text */
+    font-family: 'Roboto', sans-serif; /* Default Android font */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: #ffffff; /* White container */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Standard elevation shadow */
+    padding: 25px;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 500; /* Medium weight */
+    margin-bottom: 30px;
+    color: #1f1f1f;
+}
+
+h2 {
+    font-size: 1.1em;
+    font-weight: 400; /* Regular weight */
+    color: #424242; /* Dark grey */
+    margin-bottom: 10px;
+}
+
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.loading-bar-container {
+    background-color: #e0e0e0; /* Light grey track */
+    border: none;
+    border-radius: 4px;
+    height: 18px; /* Slightly thinner */
+    overflow: hidden;
+}
+
+.loading-bar {
+    background-color: #4285f4; /* Google Blue */
+    border-radius: 4px;
+    height: 100%;
+    /* Base animation applies */
+}
+
+.container.animate-bars .loading-bar {
+    /* Use a subtle pulse or different animation */
+    animation: pulse-androidbar 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-androidbar {
+    from { background-color: #4285f4; }
+    to { background-color: #3367d6; }
+}
+
+.percentage-text {
+    color: #616161; /* Medium grey */
+    font-size: 1em;
+    margin-top: 8px;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #757575; /* Medium grey */
+    font-size: 1.7em;
+    top: 15px;
+    right: 15px;
+}
+.settings-button:hover {
+    color: #424242;
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.6); /* Standard backdrop */
+    padding: 20px;
+}
+
+.settings-content {
+    background-color: #ffffff; /* White background */
+    border: none;
+    border-radius: 8px;
+    color: #1f1f1f;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Higher elevation */
+    max-width: 450px;
+    padding: 20px;
+}
+
+.settings-content h2 {
+    color: #1f1f1f;
+    border-bottom: 1px solid #e0e0e0; /* Light divider */
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 500;
+    text-align: center;
+}
+
+.settings-content fieldset {
+    border: none; /* No fieldset border */
+    padding: 0; /* Remove fieldset padding */
+    margin-bottom: 15px;
+    background: none;
+}
+
+.settings-content legend {
+    color: #757575;

@@ -1,0 +1,156 @@
+/* themes/ubuntu.css - Ubuntu Ambiance/Yaru Theme Mix */
+
+body {
+    background-color: #F2F2F2; /* Ubuntu light grey */
+    color: #3D3D3D; /* Dark grey text */
+    font-family: 'Ubuntu', sans-serif; /* Ubuntu font */
+}
+
+.container {
+    background-color: #FFFFFF; /* White container */
+    border: 1px solid #DCDCDC; /* Lighter border */
+    border-radius: 6px; /* Subtle rounding */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+h1 {
+    font-size: 1.7em;
+    color: #2C2C2C; /* Very dark grey */
+    font-weight: normal; /* Ubuntu uses normal weight */
+}
+
+h2 {
+    font-size: 1.15em;
+    color: #4A4A4A;
+    font-weight: normal; /* Ubuntu uses normal weight */
+    margin-bottom: 6px;
+}
+
+.loading-bar-container {
+    background-color: #E0E0E0; /* Grey track */
+    border: none; /* No border */
+    border-radius: 3px;
+    height: 10px; /* Thinner bar */
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.loading-bar {
+    background-color: #E95420; /* Ubuntu Orange */
+    border-radius: 3px;
+    height: 100%;
+}
+
+.percentage-text {
+    color: #555;
+    font-size: 1em;
+    margin-top: 6px;
+}
+
+/* Settings Button */
+.settings-button {
+    color: #666;
+    font-size: 1.7em;
+    top: 10px;
+    right: 10px;
+}
+.settings-button:hover {
+    color: #E95420; /* Orange on hover */
+}
+
+/* Settings Modal */
+.settings-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings-content {
+    background-color: #F2F2F2; /* Match body */
+    border: 1px solid #CFCFCF;
+    border-radius: 6px;
+    color: #3D3D3D;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.settings-content h2 {
+    color: #2C2C2C;
+    border-bottom: 1px solid #DCDCDC;
+    padding-bottom: 10px;
+    font-size: 1.3em;
+    font-weight: normal;
+}
+
+.settings-content fieldset {
+    border: 1px solid #DCDCDC;
+    border-radius: 4px;
+    padding: 12px 15px;
+    background-color: #FAFAFA; /* Slightly off-white */
+}
+
+.settings-content legend {
+    color: #4A4A4A;
+    font-weight: bold;
+}
+
+/* Ubuntu button style */
+.theme-options button,
+.font-options button,
+#close-settings {
+    background: linear-gradient(to bottom, #FFFFFF, #F0F0F0);
+    border: 1px solid #CFCFCF;
+    color: #3D3D3D;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 0.9em;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.theme-options button:hover,
+.font-options button:hover,
+#close-settings:hover {
+    border-color: #BDBDBD;
+    background: linear-gradient(to bottom, #FEFEFE, #E8E8E8);
+}
+
+.theme-options button:active,
+.font-options button:active,
+#close-settings:active {
+    background: linear-gradient(to bottom, #E0E0E0, #EFEFEF);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-color: #B0B0B0;
+}
+
+.theme-options button.active,
+.font-options button.active {
+    background: #E95420; /* Orange active state */
+    color: #FFFFFF;
+    border: 1px solid #D94818;
+    font-weight: bold;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.theme-options button.active:hover,
+.font-options button.active:hover {
+     background: #DD4F1C; /* Slightly darker orange hover */
+     border-color: #C94214;
+}
+
+.display-options label {
+    color: #3D3D3D;
+}
+
+.display-options select {
+    background-color: #FFFFFF;
+    border: 1px solid #CFCFCF;
+    color: #3D3D3D;
+    border-radius: 4px;
+    padding: 4px 6px;
+}
+.display-options select:focus {
+    outline: none;
+    border-color: #E95420; /* Orange focus */
+    box-shadow: 0 0 0 2px rgba(233, 84, 32, 0.3);
+}
+
+.display-options input[type="checkbox"] {
+    accent-color: #E95420;
+}
