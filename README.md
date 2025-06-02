@@ -1,4 +1,4 @@
-# Time Progress Bars
+# Loading now...
 
 This is a simple web application that visualizes the progress of various time scales (Day, Week, Month, Year, Decade, Century) using interactive loading bars.
 
